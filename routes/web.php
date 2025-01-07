@@ -28,5 +28,5 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::resource('patients', Controller::class);
-Route::resource('doctors', Controller::class);
+Route::resource('patients', PatientController::class);
+Route::resource('doctors', DoctorController::class);

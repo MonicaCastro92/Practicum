@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patient;
 use Illuminate\Http\Request;
 
-class PatientController extends Controller
+class PacienteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $patients = Patient::all();
-        return view('patients.index', compact('patients'));
+        //
     }
 
     /**
@@ -21,7 +19,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-        return view('patients.create');
+        //
     }
 
     /**
@@ -29,25 +27,21 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required | string | max=255',
-            'age' => 'required | integer | min=0',
-            'contact' => 'required | string | max=255'
-        ]);
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Patient $patient)
+    public function show(string $id)
     {
-        return view('patients.index', compact('patient'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Patient $patient)
+    public function edit(string $id)
     {
         //
     }
@@ -55,7 +49,7 @@ class PatientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Patient $patient)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -63,7 +57,7 @@ class PatientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Patient $patient)
+    public function destroy(string $id)
     {
         //
     }
