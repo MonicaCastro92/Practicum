@@ -41,21 +41,26 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link active" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link active" href="{{ route('dashboard') }}">Inicio</a>
 
                     </li>
                     <li class="nav-item">
 
-                        <a class="nav-link" href="{{ route('patients.index') }}">Patients</a>
+                        <a class="nav-link" href="{{ route('pacientes.index') }}">Pacientes</a>
 
                     </li>
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="{{ route('doctors.index') }}">Doctors</a>
+                        <a class="nav-link" href="{{ route('medicos.index') }}">Doctores</a>
 
                     </li>
+                    
+                    <li class="nav-item">
 
+                        <a class="nav-link" href="{{ route('citas.index') }}">Cita</a>
+
+                    </li>
                 </ul>
 
             </div>

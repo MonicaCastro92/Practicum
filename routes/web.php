@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CitaController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\EnfermedadController;
+use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\PacienteController;
+use App\Models\Enfermedad;
+use App\Models\Paciente;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,20 +21,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', function () {
-    return view('register');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});*/
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+require __DIR__.'/auth.php';
 
-Route::resource('patients', PatientController::class);
-Route::resource('doctors', DoctorController::class);
+Route::resource('citas', CitaController::class);
+Route::resource('enfermedads', EnfermedadController::class);
+Route::resource('medicos', MedicoController::class);
+Route::resource('pacientes', PacienteController::class);
